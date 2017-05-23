@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGM", "EGM\EGM.csproj", "{0BCEF90B-F32C-4B93-BA00-6C744390CE01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GameMachines", "GameMachines", "{DDB59F3F-4EEF-4753-B69C-A3F6B122E345}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGM.GameMachines.Core", "EGM.GameMachine.Core\EGM.GameMachines.Core.csproj", "{37E80B2D-3116-4E57-BC2A-3907D68079EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGM.GameMachines.Test", "EGM.GameMachines.Test\EGM.GameMachines.Test.csproj", "{AA36D62E-7CC0-414C-A7C4-20AD3EDD2906}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0BCEF90B-F32C-4B93-BA00-6C744390CE01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BCEF90B-F32C-4B93-BA00-6C744390CE01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BCEF90B-F32C-4B93-BA00-6C744390CE01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BCEF90B-F32C-4B93-BA00-6C744390CE01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37E80B2D-3116-4E57-BC2A-3907D68079EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37E80B2D-3116-4E57-BC2A-3907D68079EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37E80B2D-3116-4E57-BC2A-3907D68079EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37E80B2D-3116-4E57-BC2A-3907D68079EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA36D62E-7CC0-414C-A7C4-20AD3EDD2906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA36D62E-7CC0-414C-A7C4-20AD3EDD2906}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA36D62E-7CC0-414C-A7C4-20AD3EDD2906}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA36D62E-7CC0-414C-A7C4-20AD3EDD2906}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{37E80B2D-3116-4E57-BC2A-3907D68079EE} = {DDB59F3F-4EEF-4753-B69C-A3F6B122E345}
+		{AA36D62E-7CC0-414C-A7C4-20AD3EDD2906} = {DDB59F3F-4EEF-4753-B69C-A3F6B122E345}
+	EndGlobalSection
+EndGlobal
