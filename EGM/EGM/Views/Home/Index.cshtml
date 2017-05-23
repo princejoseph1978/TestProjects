@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div ng-controller="GMCtrl">
+    <div class="divList">
+        <p></p>
+        <div class="col-md-12 col-md-offset-0">
+            <div class="panel panel-default panel-table">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-xs-6">
+                            <h3 class="panel-title"><b><i>Game Machines</i></b></h3>
+                        </div>
+                        <div class="col col-xs-6 text-right">
+                            <span ng-click="AddGamemachineDiv()" class="btn btn-sm btn-primary btn-create">
+                                Add Game Machine
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped table-condensed table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Type</th>
+                                <th>Vendor</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="gamemachine in gamemachines |startFrom:currentPage*pageSize | limitTo:pageSize">
+                                <td>
+                                    {{gamemachine.Id}}
+                                </td>
+                                <td>
+                                    {{gamemachine.MachineName}}
+                                </td>
+                                <td>
+                                    {{gamemachine.Description}}
+                                </td>
+                                <td>
+                                    {{gamemachine.MachineType}}
+                                </td>
+                                <td>
+                                    {{gamemachine.Vendor}}
+                                </td>
+                                <td>
+                                    <span ng-click="editGamemachine(gamemachine)" class="btn btn-primary">Edit</span>
+                                    <span ng-click="deleteGamemachine(gamemachine)" class="btn btn-danger">Delete</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer">                   
+                        <div class="row">
+                            <div class="col-lg-pull-0" style="margin-left:5px;">
+                                <div class="pull-left">Page size </div>
+                            </div> 
+                            <div class="pull-left" style="margin-left:5px;">                                
+                                <select ng-model="pageSize" id="pageSize" class="form-control">
+                                    <option ng-selected= "{{pg.value == pageSize}}" ng-repeat="pg in pageSizes" 
+                                            value="{{pg.value}}">
+                                        {{pg.value}}
+                                    </option>                                   
+                                </select>
+                            </div>
+                            <div class="pull-right" style="margin-right:5px;">
+                                <button ng-disabled="currentPage == 0" class="btn btn-default" ng-click="currentPage=currentPage-1">
+                                    <<
+                                </button>
+                                {{currentPage+1}}/{{numberOfPages()}}
+                                <button ng-disabled="currentPage >= gamemachines.length/pageSize - 1" class="btn btn-default" ng-click="currentPage=currentPage+1">
+                                    >>
+                                </button>
+                            </div>
+                        </div>                    
+                </div>
+            </div>
+        </div>
+        <div ng-show="divGamemachine">
+            <p class="divHead"></p>
+
+            <div class="col-md-12 col-md-offset-0">
+                <div class="panel panel-default panel-table">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col col-xs-6">
+                                <h3 class="panel-title"><b><i>{{Action}} Gamemachine</i></b></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form name="gamemachineform" novalidate>
+                            <table class="table">
+                                <tr>
+                                    <td><b>Id</b></td>
+                                    <td>
+                                        
+                                        <input type="text" disabled="disabled" ng-model="gamemachineid" class="form-control" />
+                                    </td>
+                                    <td><b>Machine Name</b></td>
+                                    <td>
+                                        <input type="text" name="machinename" ng-model="machinename" class="form-control" ng-maxlength="30" required />
+                                        <span style="color:Red" ng-show="gamemachineform.machinename.$dirty && gamemachineform.machinename.$invalid"> Required! </span>                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Description</b></td>
+                                    <td>
+                                        <input type="text" ng-model="description" class="form-control" />
+                                    </td>
+                                    <td><b>Machine Type</b></td>
+                                    <td>
+                                        <input type="text" ng-model="machinetype" class="form-control" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Vendor</b></td>
+                                    <td>
+                                        <input type="text" ng-model="vendor" class="form-control" />
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <input type="submit" class="btn btn-default" value="Save" ng-click="AddUpdateGamemachine()" />
+                                        <input type="button" class="btn btn-danger" value="Cancel" ng-click="Cancel()" />
+                                    </td>
+                                </tr>
+                            </table>
+                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
